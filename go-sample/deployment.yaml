@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-sample
+  labels:
+    app: go-sample
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-sample
+  template:
+    metadata: 
+      labels:
+        app: go-sample
+    spec:
+      containers:
+        - image: go-sample:latest
+          name: go-sample
