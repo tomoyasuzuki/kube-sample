@@ -16,7 +16,7 @@ jobs:
       - name: Update manifest
         uses: mikefarah/yq@master
         with:
-          cmd: IMAGE_TAG='${{ secrets.AWS_ECR_REPO_NAME }}:${{ env.SHA }}' yq eval '.containers[].image = env(IMAGE_TAG)' -i go-sample/development.yaml
+          cmd: IMAGE_TAG='${{ secrets.AWS_ECR_REPO_NAME }}:${{ env.SHA }}' yq eval '.containers[].image = env(IMAGE_TAG)' -i go-sample/deployment.yaml
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
