@@ -9,10 +9,10 @@ jobs:
   build-and-push:
     runs-on: ubuntu-18.04
 
+    env:
+      SHA: ${{ github.event.client_payload.sha }}
+
     steps:
-      - name: Set Env
-        run: |
-          echo SHA"=${{ github.event.client_payload.sha }}" >> $SHA
       - name: Update manifest
         uses: mikefarah/yq@master
         with:
